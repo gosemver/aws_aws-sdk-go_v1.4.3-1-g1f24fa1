@@ -4,8 +4,8 @@
 package ecriface
 
 import (
-	"github.com/aws/aws-sdk-go/aws/request"
-	"github.com/aws/aws-sdk-go/service/ecr"
+	"github.com/gosemver/aws_aws-sdk-go_v1.4.3-1-g1f24fa1/aws/request"
+	"github.com/gosemver/aws_aws-sdk-go_v1.4.3-1-g1f24fa1/service/ecr"
 )
 
 // ECRAPI is the interface type for ecr.ECR.

@@ -4,8 +4,8 @@
 package cognitoidentityprovideriface
 
 import (
-	"github.com/aws/aws-sdk-go/aws/request"
-	"github.com/aws/aws-sdk-go/service/cognitoidentityprovider"
+	"github.com/gosemver/aws_aws-sdk-go_v1.4.3-1-g1f24fa1/aws/request"
+	"github.com/gosemver/aws_aws-sdk-go_v1.4.3-1-g1f24fa1/service/cognitoidentityprovider"
 )
 
 // CognitoIdentityProviderAPI is the interface type for cognitoidentityprovider.CognitoIdentityProvider.

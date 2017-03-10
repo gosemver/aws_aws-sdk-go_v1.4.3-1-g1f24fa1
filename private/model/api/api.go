@@ -172,7 +172,7 @@ func (a *API) ShapeList() []*Shape {
 // resetImports resets the import map to default values.
 func (a *API) resetImports() {
 	a.imports = map[string]bool{
-		"github.com/aws/aws-sdk-go/aws": true,
+		"github.com/gosemver/aws_aws-sdk-go_v1.4.3-1-g1f24fa1/aws": true,
 	}
 }
 
@@ -228,17 +228,17 @@ var tplAPI = template.Must(template.New("api").Parse(`
 // APIGoCode renders the API in Go code. Returning it as a string
 func (a *API) APIGoCode() string {
 	a.resetImports()
-	delete(a.imports, "github.com/aws/aws-sdk-go/aws")
-	a.imports["github.com/aws/aws-sdk-go/aws/awsutil"] = true
-	a.imports["github.com/aws/aws-sdk-go/aws/request"] = true
+	delete(a.imports, "github.com/gosemver/aws_aws-sdk-go_v1.4.3-1-g1f24fa1/aws")
+	a.imports["github.com/gosemver/aws_aws-sdk-go_v1.4.3-1-g1f24fa1/aws/awsutil"] = true
+	a.imports["github.com/gosemver/aws_aws-sdk-go_v1.4.3-1-g1f24fa1/aws/request"] = true
 	if a.OperationHasOutputPlaceholder() {
-		a.imports["github.com/aws/aws-sdk-go/private/protocol/"+a.ProtocolPackage()] = true
-		a.imports["github.com/aws/aws-sdk-go/private/protocol"] = true
+		a.imports["github.com/gosemver/aws_aws-sdk-go_v1.4.3-1-g1f24fa1/private/protocol/"+a.ProtocolPackage()] = true
+		a.imports["github.com/gosemver/aws_aws-sdk-go_v1.4.3-1-g1f24fa1/private/protocol"] = true
 	}
 
 	for _, op := range a.Operations {
 		if op.AuthType == "none" {
-			a.imports["github.com/aws/aws-sdk-go/aws/credentials"] = true
+			a.imports["github.com/gosemver/aws_aws-sdk-go_v1.4.3-1-g1f24fa1/aws/credentials"] = true
 			break
 		}
 	}
@@ -342,16 +342,16 @@ func (c *{{ .StructName }}) newRequest(op *request.Operation, params, data inter
 // ServiceGoCode renders service go code. Returning it as a string.
 func (a *API) ServiceGoCode() string {
 	a.resetImports()
-	a.imports["github.com/aws/aws-sdk-go/aws/client"] = true
-	a.imports["github.com/aws/aws-sdk-go/aws/client/metadata"] = true
-	a.imports["github.com/aws/aws-sdk-go/aws/request"] = true
+	a.imports["github.com/gosemver/aws_aws-sdk-go_v1.4.3-1-g1f24fa1/aws/client"] = true
+	a.imports["github.com/gosemver/aws_aws-sdk-go_v1.4.3-1-g1f24fa1/aws/client/metadata"] = true
+	a.imports["github.com/gosemver/aws_aws-sdk-go_v1.4.3-1-g1f24fa1/aws/request"] = true
 	if a.Metadata.SignatureVersion == "v2" {
-		a.imports["github.com/aws/aws-sdk-go/private/signer/v2"] = true
-		a.imports["github.com/aws/aws-sdk-go/aws/corehandlers"] = true
+		a.imports["github.com/gosemver/aws_aws-sdk-go_v1.4.3-1-g1f24fa1/private/signer/v2"] = true
+		a.imports["github.com/gosemver/aws_aws-sdk-go_v1.4.3-1-g1f24fa1/aws/corehandlers"] = true
 	} else {
-		a.imports["github.com/aws/aws-sdk-go/aws/signer/v4"] = true
+		a.imports["github.com/gosemver/aws_aws-sdk-go_v1.4.3-1-g1f24fa1/aws/signer/v4"] = true
 	}
-	a.imports["github.com/aws/aws-sdk-go/private/protocol/"+a.ProtocolPackage()] = true
+	a.imports["github.com/gosemver/aws_aws-sdk-go_v1.4.3-1-g1f24fa1/private/protocol/"+a.ProtocolPackage()] = true
 
 	var buf bytes.Buffer
 	err := tplService.Execute(&buf, a)
@@ -375,8 +375,8 @@ func (a *API) ExampleGoCode() string {
 		"bytes",
 		"fmt",
 		"time",
-		"github.com/aws/aws-sdk-go/aws",
-		"github.com/aws/aws-sdk-go/aws/session",
+		"github.com/gosemver/aws_aws-sdk-go_v1.4.3-1-g1f24fa1/aws",
+		"github.com/gosemver/aws_aws-sdk-go_v1.4.3-1-g1f24fa1/aws/session",
 		path.Join(a.SvcClientImportPath, a.PackageName()),
 		strings.Join(exs, "\n\n"),
 	)
@@ -401,7 +401,7 @@ var _ {{ .StructName }}API = (*{{ .PackageName }}.{{ .StructName }})(nil)
 func (a *API) InterfaceGoCode() string {
 	a.resetImports()
 	a.imports = map[string]bool{
-		"github.com/aws/aws-sdk-go/aws/request":           true,
+		"github.com/gosemver/aws_aws-sdk-go_v1.4.3-1-g1f24fa1/aws/request":           true,
 		path.Join(a.SvcClientImportPath, a.PackageName()): true,
 	}
 

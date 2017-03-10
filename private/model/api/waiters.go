@@ -32,7 +32,7 @@ type WaitAcceptor struct {
 func (a *API) WaitersGoCode() string {
 	var buf bytes.Buffer
 	fmt.Fprintf(&buf, "import (\n\t%q\n)",
-		"github.com/aws/aws-sdk-go/private/waiter")
+		"github.com/gosemver/aws_aws-sdk-go_v1.4.3-1-g1f24fa1/private/waiter")
 
 	for _, w := range a.Waiters {
 		buf.WriteString(w.GoCode())

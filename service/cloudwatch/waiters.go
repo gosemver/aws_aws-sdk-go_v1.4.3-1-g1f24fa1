@@ -3,7 +3,7 @@
 package cloudwatch
 
 import (
-	"github.com/aws/aws-sdk-go/private/waiter"
+	"github.com/gosemver/aws_aws-sdk-go_v1.4.3-1-g1f24fa1/private/waiter"
 )
 
 func (c *CloudWatch) WaitUntilAlarmExists(input *DescribeAlarmsInput) error {

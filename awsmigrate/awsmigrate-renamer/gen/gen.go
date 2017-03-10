@@ -12,7 +12,7 @@ import (
 	"strings"
 	"text/template"
 
-	"github.com/aws/aws-sdk-go/private/model/api"
+	"github.com/gosemver/aws_aws-sdk-go_v1.4.3-1-g1f24fa1/private/model/api"
 )
 
 type pkg struct {
@@ -85,11 +85,11 @@ var renamedPackages = map[string]*packageRenames{
 `
 
 func (p *pkg) buildRenames() {
-	pkgName := "github.com/aws/aws-sdk-go/service/" + p.oldAPI.PackageName()
+	pkgName := "github.com/gosemver/aws_aws-sdk-go_v1.4.3-1-g1f24fa1/service/" + p.oldAPI.PackageName()
 	if exportMap[pkgName] == nil {
 		exportMap[pkgName] = &packageRenames{map[string]string{}, map[string]string{}, map[string]string{}}
 	}
-	ifacename := "github.com/aws/aws-sdk-go/service/" + p.oldAPI.PackageName() + "/" +
+	ifacename := "github.com/gosemver/aws_aws-sdk-go_v1.4.3-1-g1f24fa1/service/" + p.oldAPI.PackageName() + "/" +
 		p.oldAPI.InterfacePackageName()
 	if exportMap[ifacename] == nil {
 		exportMap[ifacename] = &packageRenames{map[string]string{}, map[string]string{}, map[string]string{}}
